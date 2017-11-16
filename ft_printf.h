@@ -11,6 +11,14 @@
 
 # include <stdio.h> //for debugging
 
+# define IS_TYPE(c) (c == 's' || c == 'S' || c == 'p'\
+	|| c == 'd' || c == 'D' || c == 'i' || c == 'o'\
+	|| c == 'O' || c == 'u' || c == 'U' || c == 'x'\
+	|| c == 'X' || c == 'c' || c == 'C' || c == '%')\
+	? (1) : (0)
+# define IS_FLAG(c) (c == '#' || c == '0' || c == '+'\
+	|| c == '-' || c == ' ') ? (1) : (0)
+
 typedef union
 {
 	char		c;
@@ -28,16 +36,19 @@ typedef struct	s_flags
 	bool		minus;
 	bool		space;
 	int			width;
-	int			precision;
+	int			prec;
 	char		type;
+	char		*length;
 }				t_flags;
 
 typedef struct	s_print
 {
 	t_flags		*f;
 	va_list		args;
+	types		arg;
 	char		*fmt;
-	char		*str;
+	int			len;
+	int			pad;
 	int			ret;
 	int			fd;
 	int			i;

@@ -8,8 +8,9 @@ static void		init_flags(t_flags *f)
 	f->minus = false;
 	f->space = false;
 	f->width = 0;
-	f->precision = 0;
-	f->type = 0;
+	f->prec = -1;
+	f->type = '\0';
+	f->length = NULL;
 }
 
 void			init_print(t_print *p, int fd, char *fmt)
@@ -20,7 +21,8 @@ void			init_print(t_print *p, int fd, char *fmt)
 	p->f = &f;
 	p->fd = fd;
 	p->fmt = fmt;
-	p->str = fmt;
+	p->len = 0;
+	p->pad = 0;
 	p->ret = 0;
 	p->i = 0;
 }
