@@ -1,31 +1,26 @@
 #include "ft_printf.h"
 
-static t_flags	*init_flags(void)
+static void		init_flags(t_flags *f)
 {
-	t_flags		*f;
-
-	if (!(f = (t_flags*)malloc(sizeof(t_flags))))
-	{
-		write(2, "malloc failed for t_flags\n", 26);
-		return (NULL);
-	}
-	bzero(f, sizeof(t_flags));
-	return (f);
+	f->hash = false;
+	f->zero = false;
+	f->plus = false;
+	f->minus = false;
+	f->space = false;
+	f->width = 0;
+	f->precision = 0;
+	f->type = 0;
 }
 
-t_print			*init_print(char *fmt, va_list *args)
+void			init_print(t_print *p, int fd, char *fmt)
 {
-	t_print		*p;
+	t_flags	f;
 
-	if (!(p = (t_print*)malloc(sizeof(t_print))))
-	{
-		write(2, "malloc failed for t_print\n", 26);
-		return (NULL);
-	}
-	bzero(p, sizeof(t_print)); //need to sub out for libft function
-	if ((p->f = init_flags()) == NULL)
-		return (NULL);
+	init_flags(&f);
+	p->f = &f;
+	p->fd = fd;
 	p->fmt = fmt;
-	p->args = args;
-	return (p);
+	p->str = fmt;
+	p->ret = 0;
+	p->i = 0;
 }
