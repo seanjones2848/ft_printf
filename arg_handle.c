@@ -41,5 +41,5 @@ void		arg_handle(t_print *p)
 	else if (p->f->type == 'c' || p->f->type == 'C')
 		charify(p);
 	else if (p->f->type == '%')
-		percentify(p);
+		p->ret = write(p->fd, "%", 1);
 }

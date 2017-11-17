@@ -2,10 +2,19 @@ NAME = ft_printf
 
 SRC = main.c \
 	  ft_printf.c \
+	  ft_fptrintf.c \
 	  init.c \
 	  printf_meat.c \
 	  arg_handle.c \
-	  get_things.c
+	  get_things.c \
+	  convert.c \
+	  charify.c \
+	  decimalfy.c \
+	  hexify.c \
+	  octalfy.c \
+	  pointerfy.c \
+	  stringify.c \
+	  undecimalfy.c
 
 FLAGS = -Wall -Werror -Wextra
 

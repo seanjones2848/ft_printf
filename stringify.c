@@ -13,8 +13,8 @@ static void	print_spaces(t_print *p)
 	? (p->f->width - p->f->prec) : (p->f->width - p->len);
 	while (p->pad > 0)
 	{
-		p->ret += write(p->fd, " ", 1);
-		p->pad--;
+		p->ret += write(p->fd, "           ", (p->pad >= 10) ? 10 : p->pad);
+		p->pad -= (p->pad >= 10) ? 10 : p->pad;
 	}
 }
 

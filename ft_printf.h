@@ -72,7 +72,8 @@ void			get_flags(t_print *p);
 void			get_precision(t_print *p);
 void			get_width(t_print *p);
 void			get_length(t_print *p);
-
+void			convert(t_print *p);
+void			unconvert(t_print *p);
 
 /*
 ** formaters
@@ -84,7 +85,6 @@ void			octalfy(t_print *p);
 void			decimalfy(t_print *p);
 void			undecimalfy(t_print *p);
 void			hexify(t_print *p);
-void			percentify(t_print *p);
 void			pointerfy(t_print *p);
 
 #endif

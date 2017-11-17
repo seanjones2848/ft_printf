@@ -39,18 +39,16 @@ void	get_width(t_print *p)
 
 void	get_length(t_print *p)
 {
-	if (p->fmt[p->i] == 'h' && p->fmt[p->i + 1] == 'h'
-		&& (p->i += 2))
-		ft_strcpy(p->f->length, "hh\0");
+	if (p->fmt[p->i] == 'h' && p->fmt[p->i + 1] == 'h' && (p->i += 2))
+		ft_strcpy(p->f->length, "hh");
 	else if (p->fmt[p->i] == 'h' && (p->i++))
-		ft_strcpy(p->f->length, "h\0");
-	else if (p->fmt[p->i] == 'l' && p->fmt[p->i + 1] == 'l'
-		&& (p->i += 2))
-		ft_strcpy(p->f->length, "ll\0");
+		ft_strcpy(p->f->length, "h");
+	else if (p->fmt[p->i] == 'l' && p->fmt[p->i + 1] == 'l' && (p->i += 2))
+		ft_strcpy(p->f->length, "ll");
 	else if (p->fmt[p->i] == 'l' && (p->i++))
-		ft_strcpy(p->f->length, "l\0");
+		ft_strcpy(p->f->length, "l");
 	else if (p->fmt[p->i] == 'j' && (p->i++))
-		ft_strcpy(p->f->length, "j\0");
+		ft_strcpy(p->f->length, "j");
 	else if (p->fmt[p->i] == 'z' && (p->i++))
-		ft_strcpy(p->f->length, "z\0");
+		ft_strcpy(p->f->length, "z");
 }
