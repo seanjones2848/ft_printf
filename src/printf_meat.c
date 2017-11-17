@@ -1,5 +1,4 @@
 #include "ft_printf.h"
-#include "libft/libft.h"
 
 static void	print_fmt(t_print *p, int j)
 {

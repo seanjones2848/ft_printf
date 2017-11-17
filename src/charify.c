@@ -1,11 +1,5 @@
 #include "ft_printf.h"
 
-static void	print_char(t_print *p)
-{
-	ft_putchar_fd(p->fd, p->arg.c);
-	p->ret++;
-}
-
 static void	print_spaces(t_print *p)
 {
 	p->spaces = p->f->width - p->len;
@@ -22,12 +16,12 @@ void		charify(t_print *p)
 	p->len = 1;
 	if (p->f->minus)
 	{
-		print_char(p);
+		print_char(p, p->arg.c, 1);
 		print_spaces(p);
 	}
 	else
 	{
 		print_spaces(p);
-		print_char(p);
+		print_char(p, p->arg.c, 1);
 	}
 }

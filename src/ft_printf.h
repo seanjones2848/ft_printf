@@ -2,7 +2,7 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -72,12 +72,14 @@ void			init_print(t_print *p, int fd, char *fmt);
 void			printf_meat(t_print *p);
 void			arg_handle(t_print *p);
 void			get_flags(t_print *p);
-void			get_precision(t_print *p);
+void			get_prec(t_print *p);
 void			get_width(t_print *p);
 void			get_length(t_print *p);
 void			convert(t_print *p);
 void			unconvert(t_print *p);
 void			reset(t_print *p);
+void			print_char(t_print *p, char c, int t);
+void			print_num(t_print *p);
 
 /*
 ** formaters

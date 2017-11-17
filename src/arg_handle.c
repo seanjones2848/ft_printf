@@ -14,7 +14,7 @@ static void	get_specs(t_print *p)
 		if (IS_FLAG(p->fmt[p->i]))
 			get_flags(p);
 		else if (p->fmt[p->i] == '.')
-			get_precision(p);
+			get_prec(p);
 		else if (ft_isdigit(p->fmt[p->i]))
 			get_width(p);
 		else if (ft_isalpha(p->fmt[p->i]))

@@ -5,15 +5,15 @@ void	get_flags(t_print *p)
 	while (IS_FLAG(p->fmt[p->i]))
 	{
 		if (p->fmt[p->i] == '#')
-			p->f->hash == true;
+			p->f->hash = true;
 		else if (p->fmt[p->i] == '0')
-			p->f->zero == true;
+			p->f->zero = true;
 		else if (p->fmt[p->i] == '+')
-			p->f->plus == true;
+			p->f->plus = true;
 		else if (p->fmt[p->i] == '-')
-			p->f->minus == true;
+			p->f->minus = true;
 		else if (p->fmt[p->i] == ' ')
-			p->f->space == true;
+			p->f->space = true;
 		p->i++;
 	}
 }
@@ -22,7 +22,7 @@ void	get_prec(t_print *p)
 {
 	if (ft_isdigit(p->fmt[p->i]))
 	{
-		p->f->prec == ft_atoi(p->fmt + p->i);
+		p->f->prec = ft_atoi(p->fmt + p->i);
 		while (ft_isdigit(p->fmt[p->i]))
 			p->i++;
 	}

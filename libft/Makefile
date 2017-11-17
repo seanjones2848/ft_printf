@@ -126,6 +126,7 @@ OBJS =	ft_memset.o		\
 		ft_itoa_base.o	\
 		ft_putchar.o	\
 		ft_putstr.o		\
+		ft_putnstr.o	\
 		ft_putendl.o	\
 		ft_putnbr.o		\
 		ft_putchar_fd.o	\
