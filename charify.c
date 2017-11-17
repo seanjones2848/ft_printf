@@ -8,11 +8,11 @@ static void	print_char(t_print *p)
 
 static void	print_spaces(t_print *p)
 {
-	p->pad = p->f->width - p->len;
-	while (p->pad > 0)
+	p->spaces = p->f->width - p->len;
+	while (p->spaces > 0)
 	{
-		p->ret = write(1, "          ", (p->pad >= 10) ? (10) : (p->pad));
-		p->pad -= (p->pad >= 10) ? (10) : (p->pad);
+		p->ret = write(1, "          ", (p->spaces >= 10) ? (10) : (p->spaces));
+		p->spaces -= (p->spaces >= 10) ? (10) : (p->spaces);
 	}
 }
 

@@ -21,8 +21,21 @@ void			init_print(t_print *p, int fd, char *fmt)
 	p->f = &f;
 	p->fd = fd;
 	p->fmt = fmt;
+	p->num = NULL;
+	p->sign = 0;
+	p->spaces = 0;
+	p->zeroes = 0;
 	p->len = 0;
-	p->pad = 0;
 	p->ret = 0;
 	p->i = 0;
+}
+
+void			reset(t_print *p)
+{
+	init_flags(p->f);
+	p->num = NULL;
+	p->sign = 0;
+	p->spaces = 0;
+	p->zeroes = 0;
+	p->len = 0;
 }

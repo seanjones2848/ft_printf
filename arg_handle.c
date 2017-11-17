@@ -29,8 +29,7 @@ void		arg_handle(t_print *p)
 		stringify(p);
 	else if (p->f->type == 'p')
 		pointerfy(p);
-	else if (p->f->type == 'd' || p->f->type == 'D'
-		|| p->f->type == 'i')
+	else if (p->f->type == 'd' || p->f->type == 'D' || p->f->type == 'i')
 		decimalfy(p);
 	else if (p->f->type == 'o' || p->f->type == 'O')
 		octalfy(p);
@@ -42,4 +41,5 @@ void		arg_handle(t_print *p)
 		charify(p);
 	else if (p->f->type == '%')
 		p->ret = write(p->fd, "%", 1);
+	reset(p);
 }

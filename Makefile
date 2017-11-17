@@ -2,7 +2,7 @@ NAME = ft_printf
 
 SRC = main.c \
 	  ft_printf.c \
-	  ft_fptrintf.c \
+	  ft_fprintf.c \
 	  init.c \
 	  printf_meat.c \
 	  arg_handle.c \

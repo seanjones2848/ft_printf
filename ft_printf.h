@@ -47,8 +47,11 @@ typedef struct	s_print
 	va_list		args;
 	types		arg;
 	char		*fmt;
+	char		*num;
+	char		sign;
+	int			spaces;
+	int			zeroes;
 	int			len;
-	int			pad;
 	int			ret;
 	int			fd;
 	int			i;
@@ -74,6 +77,7 @@ void			get_width(t_print *p);
 void			get_length(t_print *p);
 void			convert(t_print *p);
 void			unconvert(t_print *p);
+void			reset(t_print *p);
 
 /*
 ** formaters

@@ -56,6 +56,7 @@ SRCS = 	ft_memset.c		\
 		ft_strtrim.c	\
 		ft_strsplit.c	\
 		ft_itoa.c		\
+		ft_itoa_base.c	\
 		ft_putchar.c	\
 		ft_putstr.c		\
 		ft_putnstr.c	\
@@ -122,6 +123,7 @@ OBJS =	ft_memset.o		\
 		ft_strtrim.o	\
 		ft_strsplit.o	\
 		ft_itoa.o		\
+		ft_itoa_base.o	\
 		ft_putchar.o	\
 		ft_putstr.o		\
 		ft_putendl.o	\
@@ -147,21 +149,21 @@ OBJS =	ft_memset.o		\
 FLGS = -Wextra -Wall -Werror
 
 $(NAME): 
-	gcc $(FLGS) -c $(SRCS) -I.
-	ar rc $(NAME) $(OBJS) 
+	@gcc $(FLGS) -c $(SRCS) -I.
+	@ar rc $(NAME) $(OBJS) 
 	ranlib $(NAME)
 
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJS)
+	@rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
 
 nice: re
-	rm -rf $(OBJS)
+	@rm -rf $(OBJS)
 
 .PHONEY: all clean fclean re nice
