@@ -2,7 +2,7 @@
 
 static void	print_fmt(t_print *p, int j)
 {
-	p->ret = write(p->fd, p->fmt + j, p->i - j);
+	p->ret += write(p->fd, p->fmt + j, p->i - j);
 }
 
 void		printf_meat(t_print *p)
@@ -15,6 +15,7 @@ void		printf_meat(t_print *p)
 		if (p->fmt[p->i] == '%')
 		{
 			print_fmt(p, j);
+			reset(p);
 			arg_handle(p);
 			j = p->i + 1;
 		}

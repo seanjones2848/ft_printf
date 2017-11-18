@@ -2,15 +2,15 @@
 
 static void	print_string(t_print *p)
 {
-	p->spaces = (p->f->prec != -1 && p->f->prec < p->len)
-	? (p->f->prec) : (p->len);
-	p->ret = write(p->fd, p->arg.s, p->spaces);
+	p->spaces = (p->prec != -1 && p->prec < p->len)
+	? (p->prec) : (p->len);
+	p->ret += write(p->fd, p->arg.s, p->spaces);
 }
 
 static void	print_spaces(t_print *p)
 {
-	p->spaces = (p->f->prec >= 0 && p->f->prec < p->len)
-	? (p->f->width - p->f->prec) : (p->f->width - p->len);
+	p->spaces = (p->prec >= 0 && p->prec < p->len)
+	? (p->width - p->prec) : (p->width - p->len);
 	while (p->spaces > 0)
 	{
 		p->ret += write(p->fd, "           ", (p->spaces >= 10) ? 10 : p->spaces);
@@ -22,8 +22,7 @@ void		stringify(t_print *p)
 {
 	p->arg.s = va_arg(p->args, char*);
 	p->len = ft_strlen(p->arg.s);
-	printf("str {%s}\n", p->arg.s);
-	if (p->f->minus)
+	if (p->minus)
 	{
 		print_string(p);
 		print_spaces(p);

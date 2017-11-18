@@ -5,24 +5,24 @@ static void	format(t_print *p)
 {
 	p->num = ft_itoa_base(p->arg.u, 8);
 	p->len = ft_strlen(p->num);
-	if (p->f->hash && p->num[0] != '0')
+	if (p->hash && p->num[0] != '0')
 		p->zeroes++;
-	if (p->f->prec > p->len + p->zeroes)
-		p->zeroes = p->f->prec - p->len;
-	if (p->f->minus)
-		p->spaces = p->f->width - (p->zeroes + p->len);
+	if (p->prec > p->len + p->zeroes)
+		p->zeroes = p->prec - p->len;
+	if (p->minus)
+		p->spaces = p->width - (p->zeroes + p->len);
 	else
-		(p->f->zero) ? (p->zeroes += p->f->width - (p->zeroes + p->len))
-			: (p->spaces = p->f->width - (p->zeroes + p->len));
+		(p->zero) ? (p->zeroes += p->width - (p->zeroes + p->len))
+			: (p->spaces = p->width - (p->zeroes + p->len));
 }
 
 void		octalfy(t_print *p)
 {
-	if (p->f->type == 'O')
-		ft_strcpy(p->f->length, "l");
+	if (p->type == 'O')
+		ft_strcpy(p->l_mod, "l");
 	unconvert(p);
 	format(p);
-	if (p->f->minus)
+	if (p->minus)
 	{
 		print_char(p, '0', p->zeroes);
 		print_num(p);

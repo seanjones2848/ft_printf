@@ -85,6 +85,8 @@ PRINT =	src/ft_printf.c \
 
 SRC = $(LIBFT) $(PRINT)
 
+DEBUG = -g
+
 FLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
@@ -93,6 +95,9 @@ $(NAME):
 	@gcc $(FLAGS) -c $(SRC)
 	@ar rc $(NAME) *.o
 	ranlib $(NAME)
+
+test:
+	@gcc $(FLAGS) $(DEBUG) main.c libftprintf.a
 
 clean:
 	@rm *.o

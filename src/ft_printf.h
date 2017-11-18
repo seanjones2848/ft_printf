@@ -28,7 +28,7 @@ typedef union
 	void		*v;
 }				types;
 
-typedef struct	s_flags
+typedef struct	s_print
 {
 	bool		hash;
 	bool		zero;
@@ -38,12 +38,7 @@ typedef struct	s_flags
 	int			width;
 	int			prec;
 	char		type;
-	char		*length;
-}				t_flags;
-
-typedef struct	s_print
-{
-	t_flags		*f;
+	char		*l_mod;
 	va_list		args;
 	types		arg;
 	char		*fmt;
@@ -92,5 +87,11 @@ void			decimalfy(t_print *p);
 void			undecimalfy(t_print *p);
 void			hexify(t_print *p);
 void			pointerfy(t_print *p);
+
+/*
+** Debug functions
+*/
+
+void			print_all(t_print *p);
 
 #endif

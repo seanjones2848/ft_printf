@@ -4,23 +4,23 @@ static void	format(t_print *p)
 {
 	if (IS_NEG(p->arg.i) && (p->sign = '-'))
 		p->arg.i *= -1;
-	else if (p->f->plus)
+	else if (p->plus)
 		p->sign = '+';
 	p->num = ft_itoa_base(p->arg.i, 10);
 	p->len = ft_strlen(p->num);
-	if (p->f->prec > p->len)
-		p->zeroes = p->f->prec - p->len;
-	if (p->f->width > p->len + p->zeroes)
-		p->spaces = p->f->width - (p->len + p->zeroes);
+	if (p->prec > p->len)
+		p->zeroes = p->prec - p->len;
+	if (p->width > p->len + p->zeroes)
+		p->spaces = p->width - (p->len + p->zeroes);
 }
 
 void		decimalfy(t_print *p)
 {
-	if (p->f->type == 'D')
-		ft_strcpy(p->f->length, "l");
+	if (p->type == 'D')
+		ft_strcpy(p->l_mod, "l");
 	convert(p);
 	format(p);
-	if (p->f->minus)
+	if (p->minus)
 	{
 		if (p->sign && p->ret++)
 			ft_putchar_fd(p->sign, p->fd);
@@ -30,9 +30,9 @@ void		decimalfy(t_print *p)
 	}
 	else
 	{
-		if (p->sign && !p->f->zero && (p->ret++))
+		if (p->sign && !p->zero && (p->ret++))
 			ft_putchar_fd(p->sign, p->fd);
-		(p->f->zero) ? print_char(p, '0', p->spaces)
+		(p->zero) ? print_char(p, '0', p->spaces)
 			: print_char(p, ' ', p->spaces);
 		print_char(p, '0', p->zeroes);
 		print_num(p);

@@ -2,7 +2,7 @@
 
 static int	is_type(t_print *p, char c)
 {
-	if ((IS_TYPE(c)) && (p->f->type = c))
+	if ((IS_TYPE(c)) && (p->type = c))
 		return (1);
 	return (0);
 }
@@ -24,22 +24,22 @@ static void	get_specs(t_print *p)
 
 void		arg_handle(t_print *p)
 {
+	p->i++;
 	get_specs(p);
-	if (p->f->type == 's' || p->f->type == 'S')
+	if (p->type == 's' || p->type == 'S')
 		stringify(p);
-	else if (p->f->type == 'p')
+	else if (p->type == 'p')
 		pointerfy(p);
-	else if (p->f->type == 'd' || p->f->type == 'D' || p->f->type == 'i')
+	else if (p->type == 'd' || p->type == 'D' || p->type == 'i')
 		decimalfy(p);
-	else if (p->f->type == 'o' || p->f->type == 'O')
+	else if (p->type == 'o' || p->type == 'O')
 		octalfy(p);
-	else if (p->f->type == 'u' || p->f->type == 'U')
+	else if (p->type == 'u' || p->type == 'U')
 		undecimalfy(p);
-	else if (p->f->type == 'x' || p->f->type == 'X')
+	else if (p->type == 'x' || p->type == 'X')
 		hexify(p);
-	else if (p->f->type == 'c' || p->f->type == 'C')
+	else if (p->type == 'c' || p->type == 'C')
 		charify(p);
-	else if (p->f->type == '%')
+	else if (p->type == '%')
 		p->ret = write(p->fd, "%", 1);
-	reset(p);
 }
