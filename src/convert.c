@@ -3,35 +3,35 @@
 void	unconvert(t_print *p)
 {
 	if (!(p->l_mod))
-		p->arg.u = va_arg(p->args, unsigned int);
+		p->arg.u = (unsigned int)va_arg(p->args, unsigned long long int);
 	else if (!(ft_strcmp(p->l_mod, "hh")))
-		p->arg.u = (unsigned char)va_arg(p->args, unsigned int);
+		p->arg.u = (unsigned char)va_arg(p->args, unsigned long long int);
 	else if (!(ft_strcmp(p->l_mod, "h")))
-		p->arg.u = (unsigned short)va_arg(p->args, unsigned int);
+		p->arg.u = (unsigned short)va_arg(p->args, unsigned long long int);
 	else if (!(ft_strcmp(p->l_mod, "ll")))
-		p->arg.u = va_arg(p->args, unsigned long long int);
+		p->arg.u = (unsigned long long)va_arg(p->args, unsigned long long int);
 	else if (!(ft_strcmp(p->l_mod, "l")))
-		p->arg.u = va_arg(p->args, unsigned long int);
+		p->arg.u = (unsigned long)va_arg(p->args, unsigned long long int);
 	else if (!(ft_strcmp(p->l_mod, "j")))
-		p->arg.u = va_arg(p->args, intmax_t);
+		p->arg.u = (uintmax_t)va_arg(p->args, unsigned long long int);
 	else if (!(ft_strcmp(p->l_mod, "z")))
-		p->arg.u = va_arg(p->args, size_t);
+		p->arg.u = (size_t)va_arg(p->args, unsigned long long int);
 }
 
 void	convert(t_print *p)
 {
 	if (!(p->l_mod))
-		p->arg.i = va_arg(p->args, int);
+		p->arg.i = (int)va_arg(p->args, long long int);
 	else if (!(ft_strcmp(p->l_mod, "hh")))
-		p->arg.i = (char)va_arg(p->args, int);
+		p->arg.i = (signed char)va_arg(p->args, long long int);
 	else if (!(ft_strcmp(p->l_mod, "h")))
-		p->arg.i = (short int)va_arg(p->args, int);
+		p->arg.i = (short)va_arg(p->args, long long int);
 	else if (!(ft_strcmp(p->l_mod, "ll")))
-		p->arg.i = va_arg(p->args, long long int);
+		p->arg.i = (long long)va_arg(p->args, long long int);
 	else if (!(ft_strcmp(p->l_mod, "l")))
-		p->arg.i = va_arg(p->args, long int);
+		p->arg.i = (long)va_arg(p->args, long long int);
 	else if (!(ft_strcmp(p->l_mod, "j")))
-		p->arg.i = va_arg(p->args, intmax_t);
+		p->arg.i = (intmax_t)va_arg(p->args, long long int);
 	else if (!(ft_strcmp(p->l_mod, "z")))
-		p->arg.i = va_arg(p->args, size_t);
+		p->arg.i = (size_t)va_arg(p->args, long long int);
 }

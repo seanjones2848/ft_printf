@@ -18,7 +18,7 @@
 
 # define IS_NEG(x) (x < 0) ? (1) : (0)
 # define ABS(x) (x < 0) ? (-x) : (x)
-# define HEX "0123456789ABCDEF"
+# define HEX "0123456789abcdef"
 
 typedef struct		s_list
 {
