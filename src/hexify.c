@@ -4,9 +4,10 @@ static void	make_upper(t_print *p)
 {
 	int i;
 
-	i = 0;
-	while (p->num[i])
-		ft_toupper(p->num[i++]);
+	i = -1;
+	while (p->num[++i])
+		if (ft_isalpha(p->num[i]))
+			p->num[i] -= 32;
 }
 
 static void	format(t_print *p)
