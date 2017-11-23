@@ -40,15 +40,15 @@ void	get_width(t_print *p)
 void	get_length(t_print *p)
 {
 	if (p->fmt[p->i] == 'h' && p->fmt[p->i + 1] == 'h' && (p->i += 2))
-		ft_strcpy(p->l_mod, "hh");
+		p->l_mod = "hh";
 	else if (p->fmt[p->i] == 'h' && (p->i++))
-		ft_strcpy(p->l_mod, "h");
+		p->l_mod = "h";
 	else if (p->fmt[p->i] == 'l' && p->fmt[p->i + 1] == 'l' && (p->i += 2))
-		ft_strcpy(p->l_mod, "ll");
+		p->l_mod = "ll";
 	else if (p->fmt[p->i] == 'l' && (p->i++))
-		ft_strcpy(p->l_mod, "l");
+		p->l_mod = "l"; 
 	else if (p->fmt[p->i] == 'j' && (p->i++))
-		ft_strcpy(p->l_mod, "j");
+		p->l_mod = "j";
 	else if (p->fmt[p->i] == 'z' && (p->i++))
-		ft_strcpy(p->l_mod, "z");
+		p->l_mod = "z";
 }

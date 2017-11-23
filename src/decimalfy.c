@@ -17,7 +17,7 @@ static void	format(t_print *p)
 void		decimalfy(t_print *p)
 {
 	if (p->type == 'D')
-		ft_strcpy(p->l_mod, "l");
+		p->l_mod = "l";
 	convert(p);
 	format(p);
 	if (p->minus)

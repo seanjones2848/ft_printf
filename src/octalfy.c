@@ -19,7 +19,7 @@ static void	format(t_print *p)
 void		octalfy(t_print *p)
 {
 	if (p->type == 'O')
-		ft_strcpy(p->l_mod, "l");
+		p->l_mod = "l";
 	unconvert(p);
 	format(p);
 	if (p->minus)

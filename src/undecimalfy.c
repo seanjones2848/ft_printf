@@ -17,7 +17,7 @@ static void	format(t_print *p)
 void		undecimalfy(t_print *p)
 {
 	if (p->type == 'U')
-		ft_strcpy(p->l_mod, "l");
+		p->l_mod = "l";
 	unconvert(p);
 	format(p);
 	if (p->minus)

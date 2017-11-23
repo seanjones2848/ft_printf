@@ -3,13 +3,13 @@
 
 int		main(void)
 {
-	unsigned int i = -1;
+	long int i = -1;
 
 //	for (int j = 0; j < 10; j++) {
-	printf("%d, %d\n", printf("p%.0d\n", i), ft_printf("f%.0d\n", i));
-	printf("%d, %d\n", printf("p%0u\n", i), ft_printf("f%0u\n", i));
-	printf("%d, %d\n", printf("p%o\n", i), ft_printf("f%o\n", i));
-	printf("%d, %d\n", printf("p%x\n", i), ft_printf("f%x\n", i));
+	printf("%d, %d\n", printf("p%-+5.0ld\n", i), ft_printf("f%-+5.0ld\n", i));
+	printf("%d, %d\n", printf("p%0lu\n", i), ft_printf("f%0lu\n", i));
+	printf("%d, %d\n", printf("p%lo\n", i), ft_printf("f%lo\n", i));
+	printf("%d, %d\n", printf("p%lx\n", i), ft_printf("f%lx\n", i));
 	i++; //}
 	char *s1 = "derp";
 	printf("%d, %d\n", printf("pderp\n"), ft_printf("fderp\n"));
