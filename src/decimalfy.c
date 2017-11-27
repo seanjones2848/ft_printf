@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:42 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 14:12:34 by sjones           ###   ########.fr       */
+/*   Updated: 2017/11/27 14:14:38 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	format(t_print *p)
 {
-	if (p->plus)
+	if (p->plus && !(IS_NEG(p->arg.i)))
 		p->sign = '+';
 	p->num = ft_itoa_base(p->arg.i, 10);
 	p->len = ft_strlen(p->num);
