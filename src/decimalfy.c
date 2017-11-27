@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:42 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 14:18:33 by sjones           ###   ########.fr       */
+/*   Updated: 2017/11/27 14:20:21 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ void		decimalfy(t_print *p)
 	format(p);
 	if (p->minus)
 	{
-		if (p->sign && p->ret++)
+		if (p->sign && !p->zero && p->ret++)
+			ft_putchar_fd(p->sign, p->fd);
+		else if (p->sign && p->zero && p->ret++ && p->spaces--)
 			ft_putchar_fd(p->sign, p->fd);
 		print_char(p, '0', p->zeroes);
 		print_num(p);
