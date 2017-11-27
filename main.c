@@ -9,7 +9,7 @@ int		main(void)
 	printf("%d, %d\n", printf("p%-+5.0ld\n", i), ft_printf("f%-+5.0D\n", i));
 	printf("%d, %d\n", printf("p%0lu\n", i), ft_printf("f%0U\n", i));
 	printf("%d, %d\n", printf("p%lo\n", i), ft_printf("f%O\n", i));
-	printf("%d, %d\n", printf("p%lx\n", i), ft_printf("f%X\n", i));
+	printf("%d, %d\n", printf("p%lx\n", i), ft_printf("f%lx\n", i));
 	i++; //}
 	char *s1 = "derp";
 	printf("%d, %d\n", printf("pderp\n"), ft_printf("fderp\n"));
