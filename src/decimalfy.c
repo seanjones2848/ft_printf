@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:42 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 14:25:55 by sjones           ###   ########.fr       */
+/*   Updated: 2017/11/27 14:27:25 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ static void	format(t_print *p)
 		p->zeroes = p->prec - p->len;
 	if (p->width > p->len + p->zeroes)
 		p->spaces = p->width - (p->len + p->zeroes);
-	if (p->plus && !(IS_NEG(p->arg.i)))// && p->spaces--)
+	if (p->plus && !(IS_NEG(p->arg.i)))
 		p->sign = '+';
+	if (p->plus && p->zero)
+		p->spaces--;
 }
 
 void		decimalfy(t_print *p)
