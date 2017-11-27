@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_things.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/27 13:01:08 by sjones            #+#    #+#             */
+/*   Updated: 2017/11/27 13:26:11 by sjones           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	get_flags(t_print *p)
 {
-	while (IS_FLAG(p->fmt[p->i]))
+	while (is_flag(p->fmt[p->i]))
 	{
 		if (p->fmt[p->i] == '#')
 			p->hash = true;
@@ -46,7 +58,7 @@ void	get_length(t_print *p)
 	else if (p->fmt[p->i] == 'l' && p->fmt[p->i + 1] == 'l' && (p->i += 2))
 		p->l_mod = "ll";
 	else if (p->fmt[p->i] == 'l' && (p->i++))
-		p->l_mod = "l"; 
+		p->l_mod = "l";
 	else if (p->fmt[p->i] == 'j' && (p->i++))
 		p->l_mod = "j";
 	else if (p->fmt[p->i] == 'z' && (p->i++))

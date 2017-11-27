@@ -103,7 +103,7 @@ clean:
 	@rm *.o
 	@echo "cleaned up objects"
 
-fclean:
+fclean: clean
 	rm $(NAME)
 
 re: fclean all

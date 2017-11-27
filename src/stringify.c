@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stringify.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/27 13:01:44 by sjones            #+#    #+#             */
+/*   Updated: 2017/11/27 13:04:28 by sjones           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static void	print_string(t_print *p)
@@ -13,7 +25,8 @@ static void	print_spaces(t_print *p)
 	? (p->width - p->prec) : (p->width - p->len);
 	while (p->spaces > 0)
 	{
-		p->ret += write(p->fd, "           ", (p->spaces >= 10) ? 10 : p->spaces);
+		p->ret += write(p->fd, "           ",
+			(p->spaces >= 10) ? 10 : p->spaces);
 		p->spaces -= (p->spaces >= 10) ? 10 : p->spaces;
 	}
 }

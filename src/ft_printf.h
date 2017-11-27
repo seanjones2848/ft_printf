@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/27 13:00:58 by sjones            #+#    #+#             */
+/*   Updated: 2017/11/27 13:25:37 by sjones           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
@@ -8,16 +19,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <stdint.h>
-
-# include <stdio.h> //for debugging
-
-# define IS_TYPE(c) (c == 's' || c == 'S' || c == 'p'\
-	|| c == 'd' || c == 'D' || c == 'i' || c == 'o'\
-	|| c == 'O' || c == 'u' || c == 'U' || c == 'x'\
-	|| c == 'X' || c == 'c' || c == 'C' || c == '%')\
-	? (1) : (0)
-# define IS_FLAG(c) (c == '#' || c == '0' || c == '+'\
-	|| c == '-' || c == ' ') ? (1) : (0)
+# include <stdio.h>
 
 typedef union
 {
@@ -26,7 +28,7 @@ typedef union
 	intmax_t	i;
 	uintmax_t	u;
 	void		*v;
-}				types;
+}				t_types;
 
 typedef struct	s_print
 {
@@ -40,7 +42,7 @@ typedef struct	s_print
 	char		type;
 	char		*l_mod;
 	va_list		args;
-	types		arg;
+	t_types		arg;
 	char		*fmt;
 	char		*num;
 	char		sign;
@@ -75,6 +77,8 @@ void			unconvert(t_print *p);
 void			reset(t_print *p);
 void			print_char(t_print *p, char c, int t);
 void			print_num(t_print *p);
+int				is_flag(char c);
+int				is_type(char c);
 
 /*
 ** formaters

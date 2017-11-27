@@ -1,17 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   arg_handle.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/27 13:00:19 by sjones            #+#    #+#             */
+/*   Updated: 2017/11/27 13:25:29 by sjones           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-static int	is_type(t_print *p, char c)
+int			is_type(char c)
 {
-	if ((IS_TYPE(c)) && (p->type = c))
+	return (c == 's' || c == 'S' || c == 'p'\
+	|| c == 'd' || c == 'D' || c == 'i' || c == 'o'\
+	|| c == 'O' || c == 'u' || c == 'U' || c == 'x'\
+	|| c == 'X' || c == 'c' || c == 'C' || c == '%')\
+	? (1) : (0);
+}
+
+int			is_flag(char c)
+{
+	return (c == '#' || c == '0' || c == '+'\
+	|| c == '-' || c == ' ') ? (1) : (0);
+}
+
+static int	set_type(t_print *p, char c)
+{
+	if ((is_type(c)) && (p->type = c))
 		return (1);
 	return (0);
 }
 
 static void	get_specs(t_print *p)
 {
-	while (p->fmt[p->i] && !(is_type(p, p->fmt[p->i])))
+	while (p->fmt[p->i] && !(set_type(p, p->fmt[p->i])))
 	{
-		if (IS_FLAG(p->fmt[p->i]))
+		if (is_flag(p->fmt[p->i]))
 			get_flags(p);
 		else if (p->fmt[p->i] == '.' && p->i++)
 			get_prec(p);
