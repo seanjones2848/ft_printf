@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:01:48 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 13:01:49 by sjones           ###   ########.fr       */
+/*   Updated: 2017/11/27 14:07:31 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 static void	format(t_print *p)
 {
-	if (IS_NEG(p->arg.i) && (p->sign = '-'))
-		p->arg.i *= -1;
-	else if (p->plus)
+	if (p->plus)
 		p->sign = '+';
-	p->num = ft_itoa_base(p->arg.u, 10);
+	p->num = ft_uitoa_base(p->arg.u, 10);
 	p->len = ft_strlen(p->num);
 	if (p->prec > p->len)
 		p->zeroes = p->prec - p->len;

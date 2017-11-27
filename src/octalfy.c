@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:01:24 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 13:04:11 by sjones           ###   ########.fr       */
+/*   Updated: 2017/11/27 14:06:02 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	format(t_print *p)
 {
-	p->num = ft_itoa_base(p->arg.u, 8);
+	p->num = ft_uitoa_base(p->arg.u, 8);
 	p->len = ft_strlen(p->num);
 	if (p->hash && p->num[0] != '0')
 		p->zeroes++;
