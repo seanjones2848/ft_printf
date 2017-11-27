@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:01:44 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 13:04:28 by sjones           ###   ########.fr       */
+/*   Updated: 2017/11/27 15:00:32 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static void	print_spaces(t_print *p)
 void		stringify(t_print *p)
 {
 	p->arg.s = va_arg(p->args, char*);
+	if (!p->arg.s)
+		write(p->fd, "(null)", 6);
 	p->len = ft_strlen(p->arg.s);
 	if (p->minus)
 	{
