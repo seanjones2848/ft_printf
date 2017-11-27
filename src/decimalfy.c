@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:42 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 14:14:38 by sjones           ###   ########.fr       */
+/*   Updated: 2017/11/27 14:18:33 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void		decimalfy(t_print *p)
 	}
 	else
 	{
-		if (p->sign && !p->zero && (p->ret++))
+		if (p->sign && (p->ret++))
 			ft_putchar_fd(p->sign, p->fd);
 		(p->zero) ? print_char(p, '0', p->spaces)
 			: print_char(p, ' ', p->spaces);
