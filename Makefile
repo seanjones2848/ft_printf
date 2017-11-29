@@ -106,7 +106,7 @@ test:
 	@gcc $(FLAGS) $(DEBUG) main.c libftprintf.a
 
 clean:
-	@rm $(OBJ)
+	@rm -f $(OBJ)
 	@echo "cleaned up objects"
 
 fclean: clean
