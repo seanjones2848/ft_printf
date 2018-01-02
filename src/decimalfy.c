@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:42 by sjones            #+#    #+#             */
-/*   Updated: 2018/01/01 18:23:39 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/01 18:25:58 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	format(t_print *p)
 		p->sign = '+';
 	if (p->plus && p->zero)
 		p->spaces--;
-	if (p->space && !p->sign && p->spaces == 0)
+	if (p->space && !(IS_NEG(p->arg.i)) && p->spaces == 0)
 		p->spaces++;
 }
 
