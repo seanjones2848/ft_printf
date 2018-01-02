@@ -84,7 +84,8 @@ PRINT_SRC =	ft_printf.c \
 			octalfy.c \
 			pointerfy.c \
 			stringify.c \
-			undecimalfy.c
+			undecimalfy.c \
+			error.c
 
 OBJ = $(PRINT_SRC:.c=.o) $(LIBFT_SRC:.c=.o)
 LIBFT = $(addprefix $(LIBFT_PATH)/, $(LIBFT_SRC))
@@ -109,6 +110,6 @@ clean:
 	@echo "cleaned up objects"
 
 fclean: clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re: fclean all

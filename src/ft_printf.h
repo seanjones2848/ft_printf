@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:58 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/28 19:34:42 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/01 17:46:52 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,13 @@ void			decimalfy(t_print *p);
 void			undecimalfy(t_print *p);
 void			hexify(t_print *p);
 void			pointerfy(t_print *p);
+
+/*
+** error
+*/
+
+int				is_error(char c);
+void			get_error(t_print *p);
 
 /*
 ** Debug functions
