@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:19 by sjones            #+#    #+#             */
-/*   Updated: 2018/01/01 18:18:30 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/01 18:37:10 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,10 @@ void		arg_handle(t_print *p)
 {
 	p->i++;
 	get_specs(p);
-	if (p->type == 's' || p->type == 'S')
+	if (p->type == 's')
 		stringify(p);
+	else if (p->type == 'S')
+		wide_stringify(p);
 	else if (p->type == 'p')
 		pointerfy(p);
 	else if (p->type == 'd' || p->type == 'D' || p->type == 'i')

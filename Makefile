@@ -84,6 +84,7 @@ PRINT_SRC =	ft_printf.c \
 			octalfy.c \
 			pointerfy.c \
 			stringify.c \
+			wide_stringify.c \
 			undecimalfy.c \
 			error.c
 

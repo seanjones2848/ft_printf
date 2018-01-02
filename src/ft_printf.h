@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:58 by sjones            #+#    #+#             */
-/*   Updated: 2018/01/01 18:18:49 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/01 18:39:44 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef union
 {
 	char		c;
 	char		*s;
+	wchar_t		*w;
 	intmax_t	i;
 	uintmax_t	u;
 	void		*v;
@@ -87,6 +88,7 @@ int				is_length(char c);
 
 void			charify(t_print *p);
 void			stringify(t_print *p);
+void			wide_stringify(t_print *p);
 void			octalfy(t_print *p);
 void			decimalfy(t_print *p);
 void			undecimalfy(t_print *p);

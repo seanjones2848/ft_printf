@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stringify.c                                        :+:      :+:    :+:   */
+/*   wide_stringify.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:01:44 by sjones            #+#    #+#             */
-/*   Updated: 2018/01/01 18:41:59 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/01 18:46:06 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+static int	ft_wstrlen(wchar_t *w)
+{
+	size_t	i;
+
+	i = 0;
+	while (w[i] != L'\0')
+		i++;
+	return (i);
+}
+
 static void	print_string(t_print *p)
 {
 	p->spaces = (p->prec != -1 && p->prec < p->len)
 	? (p->prec) : (p->len);
-	p->ret += write(p->fd, p->arg.s, p->spaces);
+	p->ret += write(p->fd, p->arg.w, p->spaces);
 }
 
 static void	print_spaces(t_print *p)
@@ -33,12 +43,10 @@ static void	print_spaces(t_print *p)
 
 void		stringify(t_print *p)
 {
-	if (p->l_mod[0] == 'l')
-		wide_stringify(p);
-	p->arg.s = va_arg(p->args, char*);
-	if (!p->arg.s && (p->ret = write(p->fd, "(null)", 6)))
+	p->arg.w = va_arg(p->args, wchar_t*);
+	if (!p->arg.w && (p->ret = write(p->fd, "(null)", 6)))
 		return;
-	p->len = ft_strlen(p->arg.s);
+	p->len = ft_wstrlen(p->arg.w);
 	if (p->minus)
 	{
 		print_string(p);
