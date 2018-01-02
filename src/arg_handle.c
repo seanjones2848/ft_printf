@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:19 by sjones            #+#    #+#             */
-/*   Updated: 2018/01/01 17:47:53 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/01 18:11:58 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,23 @@ static int	set_type(t_print *p, char c)
 	return (0);
 }
 
+static int	is_length(char c)
+{
+	return (c == 'h' || c == 'l' || c == 'j' || c == 'z') ? (1) : (0);
+}
+
 static void	get_specs(t_print *p)
 {
-	while (p->fmt[p->i] && !(set_type(p, p->fmt[p->i])))
+	if (is_flag(p->fmt[p->i]))
+		get_flags(p);
+	if (ft_isdigit(p->fmt[p->i]))
+		get_width(p);
+	if (p->fmt[p->i] == '.' && p->i++)
+		get_prec(p);
+	if (is_length(p->fmt[p->i]))
+		get_length(p);
+	set_type(p, p->fmt[p->i]);
+/*	while (p->fmt[p->i] && !(set_type(p, p->fmt[p->i])))
 	{
 		if (is_flag(p->fmt[p->i]))
 			get_flags(p);
@@ -47,9 +61,12 @@ static void	get_specs(t_print *p)
 		else if (ft_isalpha(p->fmt[p->i]))
 			get_length(p);
 		else if (is_error(p->fmt[p->i]))
+		{
 			get_error(p);
+			break;
+		}
 	}
-}
+*/}
 
 void		arg_handle(t_print *p)
 {
