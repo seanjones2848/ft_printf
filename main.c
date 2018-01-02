@@ -4,6 +4,11 @@
 
 int		main(void)
 {
+	wchar_t wz [3] = L"@@";       // Zero-terminated
+	ft_printf("%ls", wz);   // Outputs 6 bytes
+	int			r00 = 0;
+	ft_printf("Lalalala, %d%% des gens qui parlent à Ly adorent s%s. Ou Presque. %p", 100, "Ly", &r00);
+
 //	long int i = 232146792314764219;
 
 //	for (int j = 0; j < 10; j++) {
@@ -24,7 +29,7 @@ int		main(void)
 	ft_printf("%%*i 42 == |%*i|\n", 5, 42);
 	ft_printf("%%*i 42 == |%*i|\n", 3, 42);
 	ft_printf("%%*i 42 == |%*i|\n", 2, 42);
-*/	ft_printf("foop%adoop", (double)42);
+	ft_printf("foop%adoop", (double)42);
 	ft_printf("Kashim a %a histoires à raconter", (double)1001);
 	ft_printf("Il fait au moins %a\n", (double)-8000);
 	ft_printf("%a", (double)-0);
@@ -51,6 +56,6 @@ int		main(void)
 	ft_printf("%%A Lydie == |%A|\n", (double)'L'+'y'+'d'+'i'+'e');
 	ft_printf("%%A 42.42 == |%A|\n", 42.42);
 	ft_printf("%%A 42.42 == |%.2A|\n", 42.42);
-
+*/
 	return (0);
 }

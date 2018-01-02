@@ -6,27 +6,38 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:01:44 by sjones            #+#    #+#             */
-/*   Updated: 2018/01/01 18:49:35 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/01 20:10:05 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_wstrlen(wchar_t *w)
+static void	ft_wstrlen(t_print *p)
 {
 	size_t	i;
 
 	i = 0;
-	while (w[i] != L'\0')
-		i++;
-	return (i);
+	while (p->arg.w[++i] != L'\0')
+		p->len++;
+}
+
+static void	print_wstring(t_print *p)
+{
+	int	i;
+
+	i = -1;
+	while (p->arg.w[++i] != '\0' && i <= p->spaces)
+	{
+		write(p->fd, &p->arg.w[i], 1);
+		p->ret++;
+	}
 }
 
 static void	print_string(t_print *p)
 {
 	p->spaces = (p->prec != -1 && p->prec < p->len)
 	? (p->prec) : (p->len);
-	p->ret += write(p->fd, p->arg.w, p->spaces);
+	print_wstring(p);
 }
 
 static void	print_spaces(t_print *p)
@@ -46,7 +57,7 @@ void		wide_stringify(t_print *p)
 	p->arg.w = va_arg(p->args, wchar_t*);
 	if (!p->arg.w && (p->ret = write(p->fd, "(null)", 6)))
 		return;
-	p->len = ft_wstrlen(p->arg.w);
+	ft_wstrlen(p);
 	if (p->minus)
 	{
 		print_string(p);

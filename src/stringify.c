@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:01:44 by sjones            #+#    #+#             */
-/*   Updated: 2018/01/01 18:41:59 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/01 20:16:07 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ static void	print_spaces(t_print *p)
 
 void		stringify(t_print *p)
 {
-	if (p->l_mod[0] == 'l')
+	if (p->l_mod && p->l_mod[0] == 'l')
+	{
 		wide_stringify(p);
+		return;
+	}
 	p->arg.s = va_arg(p->args, char*);
 	if (!p->arg.s && (p->ret = write(p->fd, "(null)", 6)))
 		return;
