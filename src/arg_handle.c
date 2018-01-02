@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:19 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 13:25:29 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/01 17:24:59 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static int	set_type(t_print *p, char c)
 
 static void	get_specs(t_print *p)
 {
+	int star;
+
 	while (p->fmt[p->i] && !(set_type(p, p->fmt[p->i])))
 	{
 		if (is_flag(p->fmt[p->i]))
@@ -46,6 +48,8 @@ static void	get_specs(t_print *p)
 			get_width(p);
 		else if (ft_isalpha(p->fmt[p->i]))
 			get_length(p);
+		else if (p->fmt[p->i] == '*' && p->i++)
+			star = va_arg(p->args, int);
 	}
 }
 
