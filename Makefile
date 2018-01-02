@@ -99,8 +99,7 @@ all: $(NAME)
 
 $(NAME):
 	@gcc $(FLAGS) -c $(SRC)
-	@ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@ar -rcs $(NAME) $(OBJ)
 
 test:
 	@gcc $(FLAGS) $(DEBUG) main.c libftprintf.a
