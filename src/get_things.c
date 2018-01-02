@@ -6,11 +6,16 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:01:08 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 13:26:11 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/01 18:18:25 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		is_length(char c)
+{
+	return (c == 'h' || c == 'l' || c == 'j' || c == 'z') ? (1) : (0);
+}
 
 void	get_flags(t_print *p)
 {

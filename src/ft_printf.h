@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:58 by sjones            #+#    #+#             */
-/*   Updated: 2018/01/01 17:46:52 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/01 18:18:49 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void			print_char(t_print *p, char c, int t);
 void			print_num(t_print *p);
 int				is_flag(char c);
 int				is_type(char c);
+int				is_length(char c);
 
 /*
 ** formaters
