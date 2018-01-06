@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:42 by sjones            #+#    #+#             */
-/*   Updated: 2018/01/01 20:23:40 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/05 17:12:30 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,30 @@ static void	format(t_print *p)
 		p->spaces++;
 }
 
-void		decimalfy(t_print *p)
+void		prt_decimalfy(t_print *p)
 {
 	if (p->type == 'D')
 		p->l_mod = "l";
-	convert(p);
+	prt_convert(p);
 	format(p);
 	if (p->minus)
 	{
 		if (p->sign && !p->zero && p->ret++)
 			ft_putchar_fd(p->sign, p->fd);
-		print_char(p, '0', p->zeroes);
-		print_num(p);
-		print_char(p, ' ', p->spaces);
+		prt_print_char(p, '0', p->zeroes);
+		prt_print_num(p);
+		prt_print_char(p, ' ', p->spaces);
 	}
 	else
 	{
 		if (p->sign && (p->ret++))
 			ft_putchar_fd(p->sign, p->fd);
 		if (p->prec != -1)
-			print_char(p, ' ', p->spaces);
+			prt_print_char(p, ' ', p->spaces);
 		else
-			(p->zero) ? print_char(p, '0', p->spaces)
-				: print_char(p, ' ', p->spaces);
-		print_char(p, '0', p->zeroes);
-		print_num(p);
+			(p->zero) ? prt_print_char(p, '0', p->spaces)
+				: prt_print_char(p, ' ', p->spaces);
+		prt_print_char(p, '0', p->zeroes);
+		prt_print_num(p);
 	}
 }

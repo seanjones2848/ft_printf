@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:53 by sjones            #+#    #+#             */
-/*   Updated: 2018/01/01 20:27:30 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/05 17:13:03 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int			ft_printf(const char *fmt, ...)
 {
 	t_print		p;
 
-	init_print(&p, 1, (char*)fmt);
+	prt_init_print(&p, 1, (char*)fmt);
 	va_start(p.args, fmt);
-	printf_meat(&p);
+	prt_printf_meat(&p);
 	va_end(p.args);
 	return (p.ret);
 }

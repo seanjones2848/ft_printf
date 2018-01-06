@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:31 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 13:00:33 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/05 17:11:25 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ static void	print_spaces(t_print *p)
 	}
 }
 
-void		charify(t_print *p)
+void		prt_charify(t_print *p)
 {
 	p->arg.c = (char)va_arg(p->args, int);
 	p->len = 1;
 	if (p->minus)
 	{
-		print_char(p, p->arg.c, 1);
+		prt_print_char(p, p->arg.c, 1);
 		print_spaces(p);
 	}
 	else
 	{
 		print_spaces(p);
-		print_char(p, p->arg.c, 1);
+		prt_print_char(p, p->arg.c, 1);
 	}
 }

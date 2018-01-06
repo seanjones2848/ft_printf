@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:01:39 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 13:03:25 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/05 17:15:49 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	print_fmt(t_print *p, int j)
 	p->ret += write(p->fd, p->fmt + j, p->i - j);
 }
 
-void		printf_meat(t_print *p)
+void		prt_printf_meat(t_print *p)
 {
 	int j;
 
@@ -27,8 +27,8 @@ void		printf_meat(t_print *p)
 		if (p->fmt[p->i] == '%')
 		{
 			print_fmt(p, j);
-			reset(p);
-			arg_handle(p);
+			prt_reset(p);
+			prt_arg_handle(p);
 			j = p->i + 1;
 		}
 		p->i++;

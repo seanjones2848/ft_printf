@@ -6,20 +6,20 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:01:08 by sjones            #+#    #+#             */
-/*   Updated: 2018/01/01 18:18:25 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/05 17:13:41 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		is_length(char c)
+int		prt_is_length(char c)
 {
 	return (c == 'h' || c == 'l' || c == 'j' || c == 'z') ? (1) : (0);
 }
 
-void	get_flags(t_print *p)
+void	prt_get_flags(t_print *p)
 {
-	while (is_flag(p->fmt[p->i]))
+	while (prt_is_flag(p->fmt[p->i]))
 	{
 		if (p->fmt[p->i] == '#')
 			p->hash = true;
@@ -35,7 +35,7 @@ void	get_flags(t_print *p)
 	}
 }
 
-void	get_prec(t_print *p)
+void	prt_get_prec(t_print *p)
 {
 	if (ft_isdigit(p->fmt[p->i]))
 	{
@@ -47,14 +47,14 @@ void	get_prec(t_print *p)
 		p->prec = 0;
 }
 
-void	get_width(t_print *p)
+void	prt_get_width(t_print *p)
 {
 	p->width = ft_atoi(p->fmt + p->i);
 	while (ft_isdigit(p->fmt[p->i]))
 		p->i++;
 }
 
-void	get_length(t_print *p)
+void	prt_get_length(t_print *p)
 {
 	if (p->fmt[p->i] == 'h' && p->fmt[p->i + 1] == 'h' && (p->i += 2))
 		p->l_mod = "hh";

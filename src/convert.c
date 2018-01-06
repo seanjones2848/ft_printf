@@ -6,13 +6,13 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:37 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/28 19:59:40 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/05 17:11:18 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	unconvert(t_print *p)
+void	prt_unconvert(t_print *p)
 {
 	if (!(p->l_mod))
 		p->arg.u = (unsigned int)va_arg(p->args, unsigned long long int);
@@ -30,7 +30,7 @@ void	unconvert(t_print *p)
 		p->arg.u = (size_t)va_arg(p->args, unsigned long long int);
 }
 
-void	convert(t_print *p)
+void	prt_convert(t_print *p)
 {
 	if (!(p->l_mod))
 		p->arg.i = (int)va_arg(p->args, long long int);

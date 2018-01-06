@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:00:58 by sjones            #+#    #+#             */
-/*   Updated: 2018/01/01 18:39:44 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/05 17:08:21 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,46 +66,46 @@ int				ft_fprintf(int fd, const char *fmt, ...);
 ** printf meat
 */
 
-void			init_print(t_print *p, int fd, char *fmt);
-void			printf_meat(t_print *p);
-void			arg_handle(t_print *p);
-void			get_flags(t_print *p);
-void			get_prec(t_print *p);
-void			get_width(t_print *p);
-void			get_length(t_print *p);
-void			convert(t_print *p);
-void			unconvert(t_print *p);
-void			reset(t_print *p);
-void			print_char(t_print *p, char c, int t);
-void			print_num(t_print *p);
-int				is_flag(char c);
-int				is_type(char c);
-int				is_length(char c);
+void			prt_init_print(t_print *p, int fd, char *fmt);
+void			prt_printf_meat(t_print *p);
+void			prt_arg_handle(t_print *p);
+void			prt_get_flags(t_print *p);
+void			prt_get_prec(t_print *p);
+void			prt_get_width(t_print *p);
+void			prt_get_length(t_print *p);
+void			prt_convert(t_print *p);
+void			prt_unconvert(t_print *p);
+void			prt_reset(t_print *p);
+void			prt_print_char(t_print *p, char c, int t);
+void			prt_print_num(t_print *p);
+int				prt_is_flag(char c);
+int				prt_is_type(char c);
+int				prt_is_length(char c);
 
 /*
 ** formaters
 */
 
-void			charify(t_print *p);
-void			stringify(t_print *p);
-void			wide_stringify(t_print *p);
-void			octalfy(t_print *p);
-void			decimalfy(t_print *p);
-void			undecimalfy(t_print *p);
-void			hexify(t_print *p);
-void			pointerfy(t_print *p);
+void			prt_charify(t_print *p);
+void			prt_stringify(t_print *p);
+void			prt_wide_stringify(t_print *p);
+void			prt_octalfy(t_print *p);
+void			prt_decimalfy(t_print *p);
+void			prt_undecimalfy(t_print *p);
+void			prt_hexify(t_print *p);
+void			prt_pointerfy(t_print *p);
 
 /*
 ** error
 */
 
-int				is_error(char c);
-void			get_error(t_print *p);
+int				prt_is_error(char c);
+void			prt_get_error(t_print *p);
 
 /*
 ** Debug functions
 */
 
-void			print_all(t_print *p);
+void			prt_print_all(t_print *p);
 
 #endif

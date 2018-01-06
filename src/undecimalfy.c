@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:01:48 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 14:07:31 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/05 17:16:46 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,27 @@ static void	format(t_print *p)
 		p->spaces = p->width - (p->len + p->zeroes);
 }
 
-void		undecimalfy(t_print *p)
+void		prt_undecimalfy(t_print *p)
 {
 	if (p->type == 'U')
 		p->l_mod = "l";
-	unconvert(p);
+	prt_unconvert(p);
 	format(p);
 	if (p->minus)
 	{
 		if (p->sign && (p->ret++))
 			ft_putchar_fd(p->sign, p->fd);
-		print_char(p, '0', p->zeroes);
-		print_num(p);
-		print_char(p, ' ', p->spaces);
+		prt_print_char(p, '0', p->zeroes);
+		prt_print_num(p);
+		prt_print_char(p, ' ', p->spaces);
 	}
 	else
 	{
 		if (p->sign && !p->zero && (p->ret++))
 			ft_putchar_fd(p->sign, p->fd);
-		(p->zero) ? print_char(p, '0', p->spaces)
-			: print_char(p, ' ', p->spaces);
-		print_char(p, '0', p->zeroes);
-		print_num(p);
+		(p->zero) ? prt_print_char(p, '0', p->spaces)
+			: prt_print_char(p, ' ', p->spaces);
+		prt_print_char(p, '0', p->zeroes);
+		prt_print_num(p);
 	}
 }

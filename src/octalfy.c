@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:01:24 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 14:06:02 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/05 17:15:10 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,22 @@ static void	format(t_print *p)
 			: (p->spaces = p->width - (p->zeroes + p->len));
 }
 
-void		octalfy(t_print *p)
+void		prt_octalfy(t_print *p)
 {
 	if (p->type == 'O')
 		p->l_mod = "l";
-	unconvert(p);
+	prt_unconvert(p);
 	format(p);
 	if (p->minus)
 	{
-		print_char(p, '0', p->zeroes);
-		print_num(p);
-		print_char(p, ' ', p->spaces);
+		prt_print_char(p, '0', p->zeroes);
+		prt_print_num(p);
+		prt_print_char(p, ' ', p->spaces);
 	}
 	else
 	{
-		print_char(p, ' ', p->spaces);
-		print_char(p, '0', p->zeroes);
-		print_num(p);
+		prt_print_char(p, ' ', p->spaces);
+		prt_print_char(p, '0', p->zeroes);
+		prt_print_num(p);
 	}
 }

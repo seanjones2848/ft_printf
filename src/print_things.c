@@ -6,13 +6,13 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:01:35 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 13:11:40 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/05 17:15:30 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_char(t_print *p, char c, int t)
+void	prt_print_char(t_print *p, char c, int t)
 {
 	p->ret += t;
 	while (t > 0)
@@ -22,7 +22,7 @@ void	print_char(t_print *p, char c, int t)
 	}
 }
 
-void	print_num(t_print *p)
+void	prt_print_num(t_print *p)
 {
 	p->ret += write(p->fd, p->num, p->len);
 }

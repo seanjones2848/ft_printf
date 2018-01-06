@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:01:44 by sjones            #+#    #+#             */
-/*   Updated: 2018/01/01 20:10:05 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/05 17:18:19 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ static void	print_spaces(t_print *p)
 	}
 }
 
-void		wide_stringify(t_print *p)
+void		prt_wide_stringify(t_print *p)
 {
 	p->arg.w = va_arg(p->args, wchar_t*);
 	if (!p->arg.w && (p->ret = write(p->fd, "(null)", 6)))
-		return;
+		return ;
 	ft_wstrlen(p);
 	if (p->minus)
 	{

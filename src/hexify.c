@@ -6,7 +6,7 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:01:13 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 14:05:22 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/05 17:14:23 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,28 @@ static void	format(t_print *p)
 		p->spaces = p->width - (p->len + p->zeroes);
 }
 
-void		hexify(t_print *p)
+void		prt_hexify(t_print *p)
 {
-	unconvert(p);
+	prt_unconvert(p);
 	format(p);
 	if (p->minus)
 	{
 		if (p->hash)
 			p->ret += (p->type == 'x') ? (write(p->fd, "0x", 2))
 				: (write(p->fd, "0X", 2));
-		print_char(p, '0', p->zeroes);
-		print_num(p);
+		prt_print_char(p, '0', p->zeroes);
+		prt_print_num(p);
 		if (p->spaces > 0)
-			print_char(p, ' ', p->spaces);
+			prt_print_char(p, ' ', p->spaces);
 	}
 	else
 	{
-		(p->zeroes > 0) ? (print_char(p, '0', p->spaces))
-			: (print_char(p, ' ', p->spaces));
+		(p->zeroes > 0) ? (prt_print_char(p, '0', p->spaces))
+			: (prt_print_char(p, ' ', p->spaces));
 		if (p->hash)
 			p->ret += (p->type == 'x') ? (write(p->fd, "0x", 2))
 				: (write(p->fd, "0X", 2));
-		print_char(p, '0', p->zeroes);
-		print_num(p);
+		prt_print_char(p, '0', p->zeroes);
+		prt_print_num(p);
 	}
 }

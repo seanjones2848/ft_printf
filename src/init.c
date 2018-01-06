@@ -6,13 +6,13 @@
 /*   By: sjones <sjones@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 13:01:20 by sjones            #+#    #+#             */
-/*   Updated: 2017/11/27 13:01:21 by sjones           ###   ########.fr       */
+/*   Updated: 2018/01/05 17:14:39 by sjones           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		init_print(t_print *p, int fd, char *fmt)
+void		prt_init_print(t_print *p, int fd, char *fmt)
 {
 	p->hash = false;
 	p->zero = false;
@@ -34,7 +34,7 @@ void		init_print(t_print *p, int fd, char *fmt)
 	p->i = 0;
 }
 
-void		reset(t_print *p)
+void		prt_reset(t_print *p)
 {
 	p->hash = false;
 	p->zero = false;
