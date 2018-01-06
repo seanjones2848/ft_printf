@@ -93,8 +93,6 @@ LIBFT = $(addprefix $(LIBFT_PATH)/, $(LIBFT_SRC))
 PRINT = $(addprefix $(PRINT_PATH)/, $(PRINT_SRC))
 SRC = $(LIBFT) $(PRINT)
 
-DEBUG = -g
-
 FLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
@@ -102,12 +100,11 @@ all: $(NAME)
 $(NAME):
 	@gcc $(FLAGS) -c $(SRC)
 	@ar -rcs $(NAME) $(OBJ)
-
-test:
-	@gcc $(FLAGS) $(DEBUG) main.c libftprintf.a
+	@mkdir obj
+	@mv $(OBJ) obj
 
 clean:
-	@rm -f $(OBJ)
+	@rm -rf obj
 	@echo "cleaned up objects"
 
 fclean: clean
